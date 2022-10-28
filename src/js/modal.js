@@ -14,6 +14,7 @@ const formData = document.querySelectorAll(".formData");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// event input --> regex
 
 // launch modal form
 function launchModal() {
