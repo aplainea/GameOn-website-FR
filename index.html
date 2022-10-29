@@ -28,16 +28,17 @@
           height="auto"
         />
       </div>
-    </div>
-    <!-- Nav responsive -->
-    <div class="main-navbar">
-      <a href="#" class="active"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
+
+      <!-- Nav responsive -->
+      <div class="main-navbar">
+        <a href="#" class="active"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
     <!-- Main -->
     <main>
@@ -65,13 +66,14 @@
           <span class="close"></span>
           <div class="modal-body">
             <form
+              id="reserve"
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validationForm(event)"
             >
               <!-- firstname -->
-              <div class="formData">
+              <div class="formData input-control">
                 <label>Prénom</label><br />
                 <input
                   class="text-control"
@@ -82,7 +84,7 @@
                 /><br />
               </div>
               <!-- lastname -->
-              <div class="formData">
+              <div class="formData input-control">
                 <label>Nom</label><br />
                 <input
                   class="text-control"
@@ -93,7 +95,7 @@
                 /><br />
               </div>
               <!-- email -->
-              <div class="formData">
+              <div class="formData input-control">
                 <label>E-mail</label><br />
                 <input
                   class="text-control"
@@ -103,7 +105,7 @@
                 /><br />
               </div>
               <!-- birthdate -->
-              <div class="formData">
+              <div class="formData input-control">
                 <label>Date de naissance</label><br />
                 <input
                   class="text-control"
@@ -113,14 +115,14 @@
                 /><br />
               </div>
               <!-- quantity -->
-              <div class="formData">
+              <div class="formData input-control">
                 <label
                   >À combien de tournois GameOn avez-vous déjà participé
                   ?</label
                 ><br />
                 <input
                   type="number"
-                  class="text-control"
+                  class="text-control input-control"
                   id="quantity"
                   name="quantity"
                   min="0"
@@ -128,10 +130,10 @@
                 />
               </div>
               <!-- locations -->
-              <p class="text-label">
+              <p class="text-label input-control">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData">
+              <div class="formData" id="locations">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -202,12 +204,7 @@
 
               <div class="formData">
                 <!-- checkbox1 -->
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="checkbox1"
-                  checked
-                />
+                <input class="checkbox-input" type="checkbox" id="checkbox1" />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.

@@ -38,7 +38,7 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 @media screen and (max-width: 768px) {
   .topnav {
@@ -50,7 +50,7 @@ img {
 }
 
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -80,7 +80,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -88,7 +90,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -101,15 +105,15 @@ img {
   }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -215,6 +219,7 @@ input {
   border-radius: 8px;
   font-size: 20px;
   height: 48px;
+  border: 2px solid transparent;
 }
 .formData[data-error]::after {
   content: attr(data-error);
@@ -234,12 +239,13 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
+.error {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: red;
+}
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
