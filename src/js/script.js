@@ -24,6 +24,7 @@ const regexDate = new RegExp(
 
 ///--- Functions
 
+// Switch default nav to responsive nav
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -36,6 +37,7 @@ function editNav() {
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  modalForm.style.display = "block";
 }
 // close modal form
 function closeModal() {
@@ -62,8 +64,8 @@ function validationForm(e) {
 
   // Checks if all results was true
   if (Object.values(results).every((e) => e == true)) {
-    // then we can valid submit
-    modalForm.submit();
+    // Switch to validation Modal
+    validationModal();
     // Or something is false / wrong data
   } else {
     Object.values(results).map((e) => {
@@ -172,6 +174,30 @@ function hiddenError() {
   // remove red border
   let allInput = document.querySelectorAll(".text-control");
   Array.from(allInput).map((e) => (e.style.borderColor = "green"));
+}
+
+// Show Validation modal
+function validationModal() {
+  let button = document.querySelector(".btn-submit");
+  let label = document.querySelector(".text-label");
+  // Hidden form Modal
+  Array.from(formData).map((e) => (e.style.display = "none"));
+
+  // Edit HTMLT elements
+  label.innerHTML = "Merci pour<br> votre inscription";
+  button.value = "Fermer";
+  // Edit Styles
+  modalForm.style.display = "flex";
+  modalForm.style.flexDirection = "column";
+  modalForm.style.alignItems = "center";
+  modalForm.style.textAlign = "center";
+  label.classList.add("valid-modal-label");
+
+  // Close button
+  button.addEventListener("click", () => {
+    // valid submit form
+    modalForm.submit();
+  });
 }
 
 ///--- Event Listener

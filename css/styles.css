@@ -87,6 +87,9 @@ img {
     float: right;
     display: block;
   }
+  .topnav a.active {
+    margin-top: 60px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -347,6 +350,9 @@ input {
   cursor: pointer;
   border: 0;
 }
+.valid-modal-btn {
+  margin-top: 10px;
+}
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -417,6 +423,10 @@ input {
 .text-label {
   font-weight: normal;
   font-size: 16px;
+}
+.valid-modal-label {
+  font-size: 36px;
+  margin: 350px auto;
 }
 .hero-section {
   border-radius: 10px;
