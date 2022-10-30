@@ -83,8 +83,13 @@ function validationForm(e) {
 function validText(text) {
   let message = "Veuillez saisir un texte valide.";
 
+  // Check if text have more than two caracters
+  if (text.value.trim().length <= 2) {
+    message = "Veuillez entrer deux caractères ou plus";
+  }
+
   // Checks if regexText is valid
-  return regexTextOnly.test(text.value) && text !== null
+  return regexTextOnly.test(text.value)
     ? true
     : { element: text.parentNode, message: message };
 }
@@ -102,6 +107,10 @@ function validEMail(email) {
 // Checks valid birthdate
 function validBirthdate(birthdate) {
   let message = "Veuillez saisir une date de naissance valide.";
+  // Check if birthdate is not null
+  if (birthdate.value == null) {
+    message = "Vous devez entrer votre date de naissance.";
+  }
   // Get birthdate year
   let dataDate = new Date(birthdate.value);
   let dataDateYear = dataDate.getFullYear();
@@ -131,7 +140,7 @@ function validNumber(number) {
 
 // Checks if a location is checked
 function validLocation(values) {
-  let message = "Veuillez cocher un tournoi.";
+  let message = "Vous devez choisir une option.";
 
   // Filters to find a box checked
   return Array.from(values).filter((e) => e.checked).length > 0
@@ -141,7 +150,8 @@ function validLocation(values) {
 
 // Ckecks if conditions is checked
 function validConditions(conditions) {
-  let message = "Veuillez lire et accepté les conditions d'utilisation.";
+  let message =
+    "Vous devez vérifier que vous acceptez les termes et conditions.";
 
   return conditions.checked
     ? true
@@ -176,6 +186,20 @@ function hiddenError() {
   Array.from(allInput).map((e) => (e.style.borderColor = "green"));
 }
 
+// reset form
+function resetForm() {
+  firstName.value = "";
+  lastName.value = "";
+  email.value = "";
+  birthdate.value = "";
+  quantity.value = "";
+  for (let i = 0; i < locations.length; i++) {
+    locations[i].checked = false;
+  }
+  checkbox1.checked = false;
+  checkbox2.checked = false;
+}
+
 // Show Validation modal
 function validationModal() {
   let button = document.querySelector(".btn-submit");
@@ -192,11 +216,12 @@ function validationModal() {
   modalForm.style.alignItems = "center";
   modalForm.style.textAlign = "center";
   label.classList.add("valid-modal-label");
-
   // Close button
   button.addEventListener("click", () => {
     // valid submit form
     modalForm.submit();
+    // reset form
+    resetForm();
   });
 }
 

@@ -439,6 +439,7 @@ input {
   margin-bottom: 10px;
 }
 .hero-content {
+  max-width: 500px;
   padding: 51px 67px;
   grid-column: span 4;
   background: #232323;
@@ -465,7 +466,7 @@ input {
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
+  width: 130%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
